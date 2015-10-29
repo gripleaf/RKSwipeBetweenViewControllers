@@ -149,6 +149,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol RKSwipeBetweenViewControllersDataSource <NSObject>
+
+@required
+- (NSArray*) pageViewControllers;
+
+@end
+
 @protocol RKSwipeBetweenViewControllersDelegate <NSObject>
 
 @end
@@ -158,7 +165,7 @@
 @property (nonatomic, strong) NSMutableArray *viewControllerArray;
 @property (nonatomic, weak) id<RKSwipeBetweenViewControllersDelegate> navDelegate;
 @property (nonatomic, strong) UIView *selectionBar;
-@property (nonatomic, strong)UIPageViewController *pageController;
+@property (nonatomic, strong)UIPageViewController<RKSwipeBetweenViewControllersDataSource > *pageController;
 @property (nonatomic, strong)UIView *navigationView;
 @property (nonatomic, strong)NSArray *buttonText;
 

@@ -145,7 +145,8 @@ CGFloat X_OFFSET = 8.0; //%%% for some reason there's a little bit of a glitchy 
 
 //%%% generic setup stuff for a pageview controller.  Sets up the scrolling style and delegate for the controller
 -(void)setupPageViewController {
-    pageController = (UIPageViewController*)self.topViewController;
+    pageController = (UIPageViewController<RKSwipeBetweenViewControllersDataSource >*)self.topViewController;
+	[viewControllerArray addObjectsFromArray:[pageController pageViewControllers]];
     pageController.delegate = self;
     pageController.dataSource = self;
     [pageController setViewControllers:@[[viewControllerArray objectAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
